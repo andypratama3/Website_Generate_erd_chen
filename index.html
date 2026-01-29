@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERD Generator - Chen Notation (Improved)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --bg-dark: #0a0e27;
+            --bg-card: #151b3d;
+            --accent-primary: #00d9ff;
+            --accent-secondary: #7b2ff7;
+            --accent-success: #00ff88;
+            --accent-error: #ff3864;
+            --text-primary: #ffffff;
+            --text-secondary: #8b92b8;
+            --border-color: rgba(0, 217, 255, 0.2);
+            --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .subtitle {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        
+        .main-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-glow);
+            animation: fadeInUp 0.8s ease 0.4s backwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+        }
+        
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            margin-bottom: 2rem;
+            background: rgba(0, 217, 255, 0.03);
+        }
+        
+        .upload-area:hover,
+        .upload-area.dragover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 217, 255, 0.08);
+            transform: scale(1.02);
+        }
+        
+        .upload-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.6;
+        }
+        
+        .upload-text {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .upload-hint {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        #fileInput {
+            display: none;
+        }
+        
+        .config-section {
+            margin: 2rem 0;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .config-section.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        
+        input[type="text"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(0, 217, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.1);
+        }
+        
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .status-area {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: none;
+        }
+        
+        .status-area.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .status-item {
+            padding: 0.8rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .status-icon {
+            font-size: 1.2rem;
+        }
+        
+        .status-success { color: var(--accent-success); }
+        .status-error { color: var(--accent-error); }
+        .status-processing { color: var(--accent-primary); }
+        
+        .download-btn {
+            display: none;
+            margin-top: 1.5rem;
+            width: 100%;
+            background: var(--accent-success);
+            color: var(--bg-dark);
+        }
+        
+        .download-btn.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .processing {
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        
+        .file-info {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+        
+        .file-info.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-card {
+                padding: 2rem;
+            }
+            
+            .upload-area {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ERD Generator</h1>
+            <p class="subtitle">// Chen Notation - Improved Layout Algorithm</p>
+        </header>
+        
+        <div class="main-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📤</div>
+                <div class="upload-text">Upload SQL File</div>
+                <div class="upload-hint">Click to browse or drag & drop your .sql file here</div>
+                <input type="file" id="fileInput" accept=".sql">
+            </div>
+            
+            <div class="file-info" id="fileInfo">
+                <strong>📄 File loaded:</strong> <span id="fileName"></span> (<span id="fileSize"></span>)
+            </div>
+            
+            <div class="config-section" id="configSection">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">⚙️ Configuration</h3>
+                
+                <div class="form-group">
+                    <label for="outputName">Output File Name</label>
+                    <input type="text" id="outputName" placeholder="my-erd-diagram" value="erd-chen-improved">
+                </div>
+                
+                <div class="form-group">
+                    <label for="diagramName">Diagram Name</label>
+                    <input type="text" id="diagramName" placeholder="My Database ERD" value="ERD Chen FINAL">
+                </div>
+                
+                <button class="btn btn-primary" id="generateBtn">
+                    🚀 Generate ERD
+                </button>
+            </div>
+            
+            <div class="status-area" id="statusArea">
+                <div id="statusMessages"></div>
+            </div>
+            
+            <button class="btn btn-primary download-btn" id="downloadBtn">
+                💾 Download ERD (.drawio)
+            </button>
+        </div>
+        
+        <footer>
+            Made with ❤️ | Improved Layout Algorithm v2.0
+        </footer>
+    </div>
+
+    <script>
+        // ======================================================
+        // CONFIGURATION
+        // ======================================================
+        const CONFIG = {
+            layout: {
+                paddingX: 250,
+                paddingY: 200,
+                colWidth: 800,        // Diperbesar untuk menghindari overlap
+                entityWidth: 180,
+                entityHeight: 50,
+                attrLeftX: -260,      // Lebih jauh ke kiri
+                attrRightX: 260,      // Lebih jauh ke kanan
+                attrHeight: 28,
+                attrWidth: 140,
+                attrSpacing: 42,      // Spacing antar attribute diperbesar
+                relationshipWidth: 110,
+                relationshipHeight: 65,
+                relationshipOffsetY: -20,
+            },
+            dynamicHeight: {
+                base: 50,
+                attrSpacing: 42,
+                bottomPadding: 250,   // Padding bawah diperbesar
+                topPadding: 100,      // Padding atas diperbesar
+                minLayerHeight: 500,  // Minimum height diperbesar
+            },
+            skipColumns: new Set([
+                'created_at', 'updated_at', 'deleted_at', 
+                'remember_token', 'email_verified_at'
+            ]),
+            maxTablesPerLayer: 3,     // Dikurangi dari 4 ke 3
+        };
+
+        // State
+        let sqlContent = '';
+        let erdXML = '';
+        
+        // DOM Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileInfo = document.getElementById('fileInfo');
+        const fileName = document.getElementById('fileName');
+        const fileSize = document.getElementById('fileSize');
+        const configSection = document.getElementById('configSection');
+        const generateBtn = document.getElementById('generateBtn');
+        const statusArea = document.getElementById('statusArea');
+        const statusMessages = document.getElementById('statusMessages');
+        const downloadBtn = document.getElementById('downloadBtn');
+        
+        // Upload Area Events
+        uploadArea.addEventListener('click', () => fileInput.click());
+        
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+        
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+        
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.endsWith('.sql')) {
+                handleFile(file);
+            } else {
+                addStatus('❌ Please upload a .sql file', 'error');
+            }
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        });
+        
+        function handleFile(file) {
+            const reader = new FileReader();
+            
+            reader.onload = (e) => {
+                sqlContent = e.target.result;
+                fileName.textContent = file.name;
+                fileSize.textContent = (file.size / 1024).toFixed(1) + ' KB';
+                fileInfo.classList.add('active');
+                configSection.classList.add('active');
+                statusArea.classList.remove('active');
+                downloadBtn.classList.remove('active');
+                statusMessages.innerHTML = '';
+            };
+            
+            reader.readAsText(file);
+        }
+        
+        // Generate ERD
+        generateBtn.addEventListener('click', generateERD);
+        
+        function generateERD() {
+            if (!sqlContent) {
+                addStatus('❌ Please upload a SQL file first', 'error');
+                return;
+            }
+            
+            generateBtn.disabled = true;
+            statusArea.classList.add('active');
+            statusMessages.innerHTML = '';
+            downloadBtn.classList.remove('active');
+            
+            addStatus('🔍 Parsing SQL file...', 'processing');
+            
+            setTimeout(() => {
+                try {
+                    // Parse SQL
+                    const { tables, foreignKeys, primaryKeys } = parseSQL(sqlContent);
+                    addStatus(`✅ Found ${Object.keys(tables).length} tables`, 'success');
+                    
+                    // Detect junction tables
+                    const junctionTables = detectJunctionTables(tables, foreignKeys);
+                    if (junctionTables.size > 0) {
+                        addStatus(`🔗 Detected ${junctionTables.size} junction tables (M:N)`, 'success');
+                    }
+                    
+                    // Generate ERD with improved algorithm
+                    addStatus('🎨 Generating ERD with improved layout...', 'processing');
+                    erdXML = generateERDXML(tables, foreignKeys, primaryKeys, junctionTables);
+                    
+                    addStatus('✅ ERD generated successfully!', 'success');
+                    generateBtn.disabled = false;
+                    downloadBtn.classList.add('active');
+                    
+                } catch (error) {
+                    addStatus(`❌ Error: ${error.message}`, 'error');
+                    generateBtn.disabled = false;
+                    console.error(error);
+                }
+            }, 500);
+        }
+        
+        // Download ERD
+        downloadBtn.addEventListener('click', () => {
+            const outputName = document.getElementById('outputName').value || 'erd-chen-improved';
+            const filename = outputName.endsWith('.drawio') ? outputName : outputName + '.drawio';
+            
+            const blob = new Blob([erdXML], { type: 'application/xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            addStatus(`💾 Downloaded: ${filename}`, 'success');
+        });
+        
+        function addStatus(message, type) {
+            const div = document.createElement('div');
+            div.className = `status-item status-${type}`;
+            div.innerHTML = `<span class="status-icon">${getIcon(type)}</span><span>${message}</span>`;
+            statusMessages.appendChild(div);
+            statusArea.scrollTop = statusArea.scrollHeight;
+        }
+        
+        function getIcon(type) {
+            return type === 'success' ? '✓' : type === 'error' ? '✗' : '⟳';
+        }
+        
+        // ======================================================
+        // SQL PARSER
+        // ======================================================
+        function parseSQL(sql) {
+            const tables = {};
+            const foreignKeys = {};
+            const primaryKeys = {};
+            
+            const tableRegex = /CREATE TABLE `(\w+)`\s*\((.*?)\)\s*ENGINE/gis;
+            let match;
+            
+            while ((match = tableRegex.exec(sql)) !== null) {
+                const tableName = match[1];
+                const tableBody = match[2];
+                
+                const cols = [];
+                const fks = [];
+                let pk = null;
+                
+                const lines = tableBody.split('\n');
+                
+                for (const line of lines) {
+                    const trimmed = line.trim();
+                    
+                    if (trimmed.startsWith('`')) {
+                        const colMatch = trimmed.match(/`(\w+)`/);
+                        if (colMatch) cols.push(colMatch[1]);
+                    }
+                    
+                    if (trimmed.startsWith('PRIMARY KEY')) {
+                        const pkMatch = trimmed.match(/`(\w+)`/);
+                        if (pkMatch) pk = pkMatch[1];
+                    }
+                    
+                    if (trimmed.includes('FOREIGN KEY')) {
+                        const fkMatch = trimmed.match(/FOREIGN KEY \(`(\w+)`\) REFERENCES `(\w+)`/);
+                        if (fkMatch) fks.push([fkMatch[1], fkMatch[2]]);
+                    }
+                }
+                
+                tables[tableName] = cols;
+                foreignKeys[tableName] = fks;
+                primaryKeys[tableName] = pk;
+            }
+            
+            return { tables, foreignKeys, primaryKeys };
+        }
+        
+        // ======================================================
+        // DETECT JUNCTION TABLES
+        // ======================================================
+        function detectJunctionTables(tables, foreignKeys) {
+            const junctionTables = new Set();
+            
+            for (const [table, fks] of Object.entries(foreignKeys)) {
+                if (fks.length >= 2) {
+                    const fkCols = new Set(fks.map(fk => fk[0]));
+                    const nonFkCols = tables[table].filter(col => 
+                        !fkCols.has(col) && !CONFIG.skipColumns.has(col)
+                    );
+                    
+                    if (nonFkCols.length <= 1) {
+                        junctionTables.add(table);
+                    }
+                }
+            }
+            
+            return junctionTables;
+        }
+        
+        // ======================================================
+        // IMPROVED LAYERING ALGORITHM
+        // ======================================================
+        function calculateLayersImproved(tables, foreignKeys, junctionTables) {
+            const inDegree = {};
+            const graph = {};
+            const reverseGraph = {};
+            
+            // Initialize
+            for (const table of Object.keys(tables)) {
+                inDegree[table] = 0;
+                graph[table] = [];
+                reverseGraph[table] = [];
+            }
+            
+            // Build graph
+            for (const [table, fks] of Object.entries(foreignKeys)) {
+                for (const [fkCol, refTable] of fks) {
+                    if (graph[refTable]) {
+                        graph[refTable].push(table);
+                        reverseGraph[table].push(refTable);
+                        inDegree[table]++;
+                    }
+                }
+            }
+            
+            // Topological sort
+            const levelMap = {};
+            const queue = [];
+            
+            for (const table of Object.keys(tables)) {
+                if (inDegree[table] === 0) {
+                    levelMap[table] = 0;
+                    queue.push(table);
+                }
+            }
+            
+            while (queue.length > 0) {
+                const table = queue.shift();
+                const currentLevel = levelMap[table];
+                
+                for (const dependent of graph[table]) {
+                    if (!(dependent in levelMap)) {
+                        const parentLevels = reverseGraph[dependent]
+                            .filter(p => p in levelMap)
+                            .map(p => levelMap[p]);
+                        const newLevel = parentLevels.length > 0 ? Math.max(...parentLevels) + 1 : currentLevel + 1;
+                        levelMap[dependent] = newLevel;
+                        
+                        inDegree[dependent]--;
+                        if (inDegree[dependent] === 0) {
+                            queue.push(dependent);
+                        }
+                    }
+                }
+            }
+            
+            // Handle remaining tables
+            for (const table of Object.keys(tables)) {
+                if (!(table in levelMap)) {
+                    if (foreignKeys[table] && foreignKeys[table].length > 0) {
+                        const refLevels = foreignKeys[table]
+                            .map(([_, ref]) => levelMap[ref])
+                            .filter(l => l !== undefined);
+                        levelMap[table] = refLevels.length > 0 ? Math.max(...refLevels) + 1 : 0;
+                    } else {
+                        levelMap[table] = 0;
+                    }
+                }
+            }
+            
+            // Group into layers
+            const layers = {};
+            for (const [table, level] of Object.entries(levelMap)) {
+                if (!layers[level]) layers[level] = [];
+                layers[level].push(table);
+            }
+            
+            // Balance layers
+            const balancedLayers = {};
+            let layerIdx = 0;
+            
+            for (const level of Object.keys(layers).sort((a, b) => a - b)) {
+                let currentBatch = layers[level].filter(t => !junctionTables.has(t));
+                
+                while (currentBatch.length > CONFIG.maxTablesPerLayer) {
+                    balancedLayers[layerIdx] = currentBatch.slice(0, CONFIG.maxTablesPerLayer);
+                    currentBatch = currentBatch.slice(CONFIG.maxTablesPerLayer);
+                    layerIdx++;
+                }
+                
+                if (currentBatch.length > 0) {
+                    balancedLayers[layerIdx] = currentBatch;
+                    layerIdx++;
+                }
+            }
+            
+            // Rebuild level map
+            const newLevelMap = {};
+            for (const [level, tablesInLevel] of Object.entries(balancedLayers)) {
+                for (const table of tablesInLevel) {
+                    newLevelMap[table] = parseInt(level);
+                }
+            }
+            
+            return { layers: balancedLayers, levelMap: newLevelMap };
+        }
+        
+        // ======================================================
+        // COUNT ATTRIBUTES
+        // ======================================================
+        function countAttributes(table, tables, foreignKeys) {
+            const fkCols = new Set(foreignKeys[table]?.map(fk => fk[0]) || []);
+            let count = 0;
+            
+            for (const col of tables[table]) {
+                if (col.endsWith('_id') && fkCols.has(col)) continue;
+                if (CONFIG.skipColumns.has(col)) continue;
+                count++;
+            }
+            
+            return count;
+        }
+        
+        // ======================================================
+        // CALCULATE POSITIONS WITH COLLISION DETECTION
+        // ======================================================
+        function calculatePositions(tables, foreignKeys, junctionTables, layers, levelMap) {
+            const positions = {};
+            const occupiedSpaces = []; // Track occupied areas for collision detection
+            
+            for (const level of Object.keys(layers).sort((a, b) => a - b)) {
+                const levelTables = layers[level].filter(t => !junctionTables.has(t)).sort();
+                
+                if (levelTables.length === 0) continue;
+                
+                // Calculate attributes for each table in this layer
+                const tableAttrs = levelTables.map(t => ({
+                    table: t,
+                    count: countAttributes(t, tables, foreignKeys)
+                }));
+                
+                // Calculate dynamic height based on max attributes
+                const maxAttr = Math.max(...tableAttrs.map(t => t.count));
+                const dynamicLayerHeight = Math.max(
+                    CONFIG.dynamicHeight.base +
+                    CONFIG.dynamicHeight.topPadding +
+                    (maxAttr * CONFIG.dynamicHeight.attrSpacing) +
+                    CONFIG.dynamicHeight.bottomPadding,
+                    CONFIG.dynamicHeight.minLayerHeight
+                );
+                
+                // Calculate column width based on max attributes in layer
+                const dynamicColWidth = Math.max(
+                    CONFIG.layout.colWidth,
+                    CONFIG.layout.entityWidth + Math.abs(CONFIG.layout.attrLeftX) + Math.abs(CONFIG.layout.attrRightX) + 100
+                );
+                
+                // Center entities if few tables
+                const numTables = levelTables.length;
+                let startX = CONFIG.layout.paddingX;
+                
+                if (numTables <= 2) {
+                    startX = CONFIG.layout.paddingX + dynamicColWidth;
+                } else if (numTables === 3) {
+                    startX = CONFIG.layout.paddingX + dynamicColWidth / 2;
+                }
+                
+                for (let idx = 0; idx < levelTables.length; idx++) {
+                    const table = levelTables[idx];
+                    const attrCount = tableAttrs[idx].count;
+                    
+                    // Calculate entity bounds with attributes
+                    let x = startX + idx * dynamicColWidth;
+                    let y = CONFIG.layout.paddingY + parseInt(level) * dynamicLayerHeight;
+                    
+                    // Check for collisions and adjust position
+                    const entityBounds = calculateEntityBounds(x, y, attrCount);
+                    let collision = checkCollision(entityBounds, occupiedSpaces);
+                    let attempts = 0;
+                    
+                    while (collision && attempts < 10) {
+                        // Try moving right
+                        x += 100;
+                        entityBounds.x = x;
+                        entityBounds.left = x + CONFIG.layout.attrLeftX;
+                        entityBounds.right = x + CONFIG.layout.entityWidth + CONFIG.layout.attrRightX + CONFIG.layout.attrWidth;
+                        collision = checkCollision(entityBounds, occupiedSpaces);
+                        attempts++;
+                    }
+                    
+                    positions[table] = [x, y];
+                    
+                    // Mark this space as occupied
+                    occupiedSpaces.push(entityBounds);
+                }
+            }
+            
+            return positions;
+        }
+        
+        // Calculate bounds of entity including attributes
+        function calculateEntityBounds(x, y, attrCount) {
+            const attrsLeft = Math.ceil(attrCount / 2);
+            const attrsRight = Math.floor(attrCount / 2);
+            
+            const heightLeft = attrsLeft * CONFIG.layout.attrSpacing;
+            const heightRight = attrsRight * CONFIG.layout.attrSpacing;
+            const maxHeight = Math.max(heightLeft, heightRight);
+            
+            return {
+                x: x,
+                y: y,
+                left: x + CONFIG.layout.attrLeftX,
+                right: x + CONFIG.layout.entityWidth + CONFIG.layout.attrRightX + CONFIG.layout.attrWidth,
+                top: y,
+                bottom: y + CONFIG.layout.entityHeight + maxHeight + 50
+            };
+        }
+        
+        // Check if entity bounds collide with any occupied space
+        function checkCollision(bounds, occupiedSpaces) {
+            for (const occupied of occupiedSpaces) {
+                // Check for overlap
+                const horizontalOverlap = bounds.left < occupied.right && bounds.right > occupied.left;
+                const verticalOverlap = bounds.top < occupied.bottom && bounds.bottom > occupied.top;
+                
+                if (horizontalOverlap && verticalOverlap) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        // ======================================================
+        // GENERATE ERD XML
+        // ======================================================
+        function generateERDXML(tables, foreignKeys, primaryKeys, junctionTables) {
+            const diagramName = document.getElementById('diagramName').value || 'ERD Chen FINAL';
+            
+            // Calculate improved layout
+            const { layers, levelMap } = calculateLayersImproved(tables, foreignKeys, junctionTables);
+            const positions = calculatePositions(tables, foreignKeys, junctionTables, layers, levelMap);
+            
+            // Calculate canvas size based on content
+            let maxX = 0, maxY = 0;
+            for (const [table, [x, y]] of Object.entries(positions)) {
+                const attrCount = countAttributes(table, tables, foreignKeys);
+                const bounds = calculateEntityBounds(x, y, attrCount);
+                maxX = Math.max(maxX, bounds.right);
+                maxY = Math.max(maxY, bounds.bottom);
+            }
+            
+            // Add padding to canvas
+            const canvasWidth = Math.max(2000, maxX + 300);
+            const canvasHeight = Math.max(1500, maxY + 300);
+            
+            let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="${escapeXML(diagramName)}">
+    <mxGraphModel dx="${canvasWidth}" dy="${canvasHeight}">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+`;
+            
+            const entityIds = {};
+            let cellId = 2;
+            
+            // Create entities with alternating attributes
+            for (const [table, cols] of Object.entries(tables)) {
+                if (junctionTables.has(table) || !positions[table]) continue;
+                
+                const [x, y] = positions[table];
+                const eid = `entity-${cellId++}`;
+                entityIds[table] = eid;
+                
+                // Entity box
+                xml += `        <mxCell id="${eid}" value="${escapeXML(table)}" style="shape=rectangle;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="${x}" y="${y}" width="${CONFIG.layout.entityWidth}" height="${CONFIG.layout.entityHeight}" as="geometry"/>
+        </mxCell>
+`;
+                
+                // Attributes with alternating placement
+                const fkCols = new Set(foreignKeys[table]?.map(fk => fk[0]) || []);
+                
+                const displayCols = cols.filter(col => 
+                    !(col.endsWith('_id') && fkCols.has(col)) && 
+                    !CONFIG.skipColumns.has(col)
+                ).sort();
+                
+                let attrYLeft = y + CONFIG.layout.entityHeight + 15;
+                let attrYRight = y + CONFIG.layout.entityHeight + 15;
+                
+                for (let idx = 0; idx < displayCols.length; idx++) {
+                    const col = displayCols[idx];
+                    const isPK = col === primaryKeys[table];
+                    
+                    // Alternating placement
+                    let attrX, attrY;
+                    if (idx % 2 === 0) {
+                        attrX = x + CONFIG.layout.attrLeftX;
+                        attrY = attrYLeft;
+                        attrYLeft += CONFIG.layout.attrSpacing;
+                    } else {
+                        attrX = x + CONFIG.layout.entityWidth + CONFIG.layout.attrRightX;
+                        attrY = attrYRight;
+                        attrYRight += CONFIG.layout.attrSpacing;
+                    }
+                    
+                    const aid = `attr-${cellId++}`;
+                    const strokeWidth = isPK ? '2' : '1';
+                    const fontStyle = isPK ? '5' : '0';  // 5 = bold + underline
+                    
+                    xml += `        <mxCell id="${aid}" value="${escapeXML(col)}" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=${strokeWidth};fontSize=9;fontStyle=${fontStyle};align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="${attrX}" y="${attrY}" width="${CONFIG.layout.attrWidth}" height="${CONFIG.layout.attrHeight}" as="geometry"/>
+        </mxCell>
+        <mxCell id="${cellId++}" edge="1" source="${aid}" target="${eid}" style="strokeColor=#000000;strokeWidth=1.5;endArrow=none;endFill=0;curved=0;" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+`;
+                }
+            }
+            
+            // Create 1:N relationships with arrows
+            for (const [table, fks] of Object.entries(foreignKeys)) {
+                if (junctionTables.has(table) || !positions[table]) continue;
+                
+                for (const [fkCol, targetTable] of fks) {
+                    if (!positions[targetTable] || !entityIds[targetTable] || !entityIds[table]) continue;
+                    
+                    const [ex, ey] = positions[table];
+                    const [px, py] = positions[targetTable];
+                    
+                    const exCenter = ex + CONFIG.layout.entityWidth / 2;
+                    const eyCenter = ey + CONFIG.layout.entityHeight / 2;
+                    const pxCenter = px + CONFIG.layout.entityWidth / 2;
+                    const pyCenter = py + CONFIG.layout.entityHeight / 2;
+                    
+                    const midX = Math.floor((exCenter + pxCenter) / 2);
+                    const midY = Math.floor((eyCenter + pyCenter) / 2);
+                    
+                    const rx = midX - CONFIG.layout.relationshipWidth / 2;
+                    const ry = midY - CONFIG.layout.relationshipHeight / 2 + CONFIG.layout.relationshipOffsetY;
+                    
+                    const rid = `rel-${cellId++}`;
+                    
+                    xml += `        <mxCell id="${rid}" value="memiliki" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="${rx}" y="${ry}" width="${CONFIG.layout.relationshipWidth}" height="${CONFIG.layout.relationshipHeight}" as="geometry"/>
+        </mxCell>
+        <mxCell id="${cellId++}" edge="1" source="${entityIds[table]}" target="${rid}" style="strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;curved=0;" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="${cellId++}" edge="1" source="${entityIds[targetTable]}" target="${rid}" style="strokeColor=#000000;strokeWidth=1.5;endArrow=none;endFill=0;curved=0;" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+`;
+                    
+                    // Add cardinality labels
+                    const mX = (exCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
+                    const mY = (eyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 - 15;
+                    xml += addCardinalityLabel('N', mX, mY, cellId++);
+                    
+                    const oneX = (pxCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
+                    const oneY = (pyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 + 15;
+                    xml += addCardinalityLabel('1', oneX, oneY, cellId++);
+                }
+            }
+            
+            // Create M:N relationships
+            for (const [table, fks] of Object.entries(foreignKeys)) {
+                if (!junctionTables.has(table) || fks.length < 2) continue;
+                
+                const refs = fks.map(fk => fk[1]).filter(ref => 
+                    positions[ref] && entityIds[ref]
+                );
+                
+                if (refs.length >= 2) {
+                    const [a, b] = refs;
+                    
+                    const [ax, ay] = positions[a];
+                    const [bx, by] = positions[b];
+                    
+                    const axCenter = ax + CONFIG.layout.entityWidth / 2;
+                    const ayCenter = ay + CONFIG.layout.entityHeight / 2;
+                    const bxCenter = bx + CONFIG.layout.entityWidth / 2;
+                    const byCenter = by + CONFIG.layout.entityHeight / 2;
+                    
+                    const midX = (axCenter + bxCenter) / 2;
+                    const midY = (ayCenter + byCenter) / 2;
+                    
+                    const rx = midX - CONFIG.layout.relationshipWidth / 2;
+                    const ry = midY - CONFIG.layout.relationshipHeight / 2 + CONFIG.layout.relationshipOffsetY;
+                    
+                    const rid = `rel-${cellId++}`;
+                    
+                    xml += `        <mxCell id="${rid}" value="memiliki" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="${rx}" y="${ry}" width="${CONFIG.layout.relationshipWidth}" height="${CONFIG.layout.relationshipHeight}" as="geometry"/>
+        </mxCell>
+`;
+                    
+                    for (const ent of [a, b]) {
+                        const [ex, ey] = positions[ent];
+                        const exCenter = ex + CONFIG.layout.entityWidth / 2;
+                        const eyCenter = ey + CONFIG.layout.entityHeight / 2;
+                        
+                        xml += `        <mxCell id="${cellId++}" edge="1" source="${entityIds[ent]}" target="${rid}" style="strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;curved=0;" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+`;
+                        
+                        const mX = (exCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
+                        const mY = (eyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 - 15;
+                        xml += addCardinalityLabel('M', mX, mY, cellId++);
+                    }
+                }
+            }
+            
+            xml += `      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>`;
+            
+            return xml;
+        }
+        
+        function addCardinalityLabel(text, x, y, id) {
+            return `        <mxCell id="${id}" value="${text}" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="${Math.floor(x - 10)}" y="${Math.floor(y - 10)}" width="20" height="20" as="geometry"/>
+        </mxCell>
+`;
+        }
+        
+        function escapeXML(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&apos;');
+        }
+    </script>
+</body>
+</html>
