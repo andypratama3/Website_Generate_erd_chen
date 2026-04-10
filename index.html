@@ -575,6 +575,7 @@
             const foreignKeys = {};
             const primaryKeys = {};
             
+            // 1. Parse CREATE TABLE statements
             const tableRegex = /CREATE TABLE `(\w+)`\s*\((.*?)\)\s*ENGINE/gis;
             let match;
             
@@ -597,7 +598,7 @@
                     }
                     
                     if (trimmed.startsWith('PRIMARY KEY')) {
-                        const pkMatch = trimmed.match(/`(\w+)`/);
+                        const pkMatch = trimmed.match(/PRIMARY KEY\s*\(`(\w+)`\)/i);
                         if (pkMatch) pk = pkMatch[1];
                     }
                     
@@ -610,6 +611,31 @@
                 tables[tableName] = cols;
                 foreignKeys[tableName] = fks;
                 primaryKeys[tableName] = pk;
+            }
+
+            // 2. Parse ALTER TABLE statements for additional Foreign Keys and Primary Keys
+            const alterTableRegex = /ALTER TABLE `(\w+)`(.*?);/gis;
+            while ((match = alterTableRegex.exec(sql)) !== null) {
+                const tableName = match[1];
+                const alterBody = match[2];
+                
+                // Match Foreign Keys: ADD CONSTRAINT `name` FOREIGN KEY (`col`) REFERENCES `table` (`col`)
+                const fkRegex = /ADD CONSTRAINT `.*?` FOREIGN KEY \(`(\w+)`\) REFERENCES `(\w+)`/gi;
+                let fkMatch;
+                while ((fkMatch = fkRegex.exec(alterBody)) !== null) {
+                    if (!foreignKeys[tableName]) foreignKeys[tableName] = [];
+                    // Avoid duplicates if already parsed from CREATE TABLE
+                    const exists = foreignKeys[tableName].some(fk => fk[0] === fkMatch[1] && fk[1] === fkMatch[2]);
+                    if (!exists) {
+                        foreignKeys[tableName].push([fkMatch[1], fkMatch[2]]);
+                    }
+                }
+
+                // Match Primary Keys: ADD PRIMARY KEY (`col`)
+                const pkMatch = alterBody.match(/ADD PRIMARY KEY \(`(\w+)`\)/i);
+                if (pkMatch && !primaryKeys[tableName]) {
+                    primaryKeys[tableName] = pkMatch[1];
+                }
             }
             
             return { tables, foreignKeys, primaryKeys };
