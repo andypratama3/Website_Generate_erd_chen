@@ -1,30 +1,106 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="XShhQ1RuY_570n6Lv4mG5Dk38o62_KeZmWjhlSswwMg" />
-
-    <title>ERD Generator - ERD Chen Notation</title>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
     <!-- Primary Meta Tags -->
-    <meta name="description" content="ERD Generator adalah alat otomatis untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL Anda. Hasilnya adalah diagram .drawio yang rapi dengan layout collision-detection dan dukungan relasi 1:N dan M:N.">
+    <title>ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis</title>
+    <meta name="title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
+    <meta name="description" content="ERD Generator adalah tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Generate ERD otomatis dengan smart layout, collision detection, dan dukungan relasi 1:N dan M:N. Export ke format .drawio.">
+    <meta name="keywords" content="ERD Generator, Chen Notation, ERD, Entity Relationship Diagram, SQL to ERD, Database Design Tool, drawio, Smart Layout, Collision Detection, generate erd, buat erd, diagram database, desain database, mysql to erd, postgresql to erd, free erd tool, online erd generator, notasi chen, erd online, database visualization, schema diagram">
+    <meta name="author" content="Andy Pratama">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Indonesian">
+    <meta name="revisit-after" content="7 days">
+    <meta name="rating" content="general">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://website-generate-erd-chen.vercel.app/">
+    
+    <!-- Google Site Verification -->
     <meta name="google-site-verification" content="XShhQ1RuY_570n6Lv4mG5Dk38o62_KeZmWjhlSswwMg" />
+    
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="ERD Generator - ERD Chen Notation">
-    <meta property="og:description" content="Generate ERD secara otomatis dari SQL dengan smart layout, collision detection, dan dukungan kardinalitas. Cocok untuk pengembang dan perancang database.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://github.com/andypratama3/erd-generator-chen-notation">
-    <meta property="og:image" content="https://raw.githubusercontent.com/andypratama3/erd-generator-chen-notation/main/ERD_CHEN_FINAL.drawio">
-
-    <!-- Twitter -->
+    <meta property="og:url" content="https://website-generate-erd-chen.vercel.app/">
+    <meta property="og:site_name" content="ERD Generator - Notasi Chen">
+    <meta property="og:title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
+    <meta property="og:description" content="Tool gratis untuk generate Entity Relationship Diagram (ERD) dari SQL dengan notasi Chen. Smart layout, collision detection, dan dukungan relasi M:N. Export ke .drawio.">
+    <meta property="og:image" content="https://website-generate-erd-chen.vercel.app/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="id_ID">
+    
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ERD Generator - ERD Chen Notation">
-    <meta name="twitter:description" content="Alat membuat Entity Relationship Diagram (ERD) dari file SQL menggunakan notasi Chen. Hasil .drawio siap pakai!">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/andypratama3/erd-generator-chen-notation/main/ERD_CHEN_FINAL.drawio">
-
-    <!-- Keywords -->
-    <meta name="keywords" content="ERD Generator, Chen Notation, ERD, Entity Relationship Diagram, SQL to ERD, Database Design Tool, .drawio, Smart Layout, Collision Detection">
+    <meta name="twitter:url" content="https://website-generate-erd-chen.vercel.app/">
+    <meta name="twitter:title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
+    <meta name="twitter:description" content="Tool gratis untuk generate Entity Relationship Diagram (ERD) dari SQL dengan notasi Chen. Smart layout, collision detection, dan dukungan relasi M:N.">
+    <meta name="twitter:image" content="https://website-generate-erd-chen.vercel.app/og-image.png">
+    <meta name="twitter:creator" content="@andypratama3">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#0a0e27">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ERD Generator">
+    <meta name="application-name" content="ERD Generator - Notasi Chen">
+    <meta name="msapplication-TileColor" content="#0a0e27">
+    <meta name="msapplication-tooltip" content="Generate ERD dari SQL">
+    
+    <!-- Structured Data / JSON-LD for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "ERD Generator - Notasi Chen",
+      "url": "https://website-generate-erd-chen.vercel.app/",
+      "description": "Tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Generate ERD otomatis dengan smart layout dan collision detection.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Andy Pratama",
+        "url": "https://github.com/andypratama3"
+      },
+      "creator": {
+        "@type": "Person",
+        "name": "Andy Pratama",
+        "url": "https://github.com/andypratama3"
+      },
+      "screenshot": "https://website-generate-erd-chen.vercel.app/og-image.png",
+      "softwareVersion": "2.0",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
+      },
+      "featureList": [
+        "Generate ERD dari SQL",
+        "Notasi Chen",
+        "Smart Layout Algorithm",
+        "Collision Detection",
+        "Dukungan Relasi 1:N dan M:N",
+        "Export ke .drawio",
+        "Gratis dan Open Source"
+      ]
+    }
+    </script>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700;900&display=swap');
         
