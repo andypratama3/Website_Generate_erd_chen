@@ -221,7 +221,7 @@ Project ini dilisensikan di bawah **MIT License** - lihat file [LICENSE](LICENSE
 ```
 MIT License
 
-Copyright (c) 2024 Andy Pratama
+Copyright (c) 2025 Andy Pratama
 
 Dengan ini diberikan izin, tanpa biaya, kepada siapa pun yang mendapatkan salinan
 dari perangkat lunak ini dan file dokumentasi terkait ("Perangkat Lunak"), untuk
