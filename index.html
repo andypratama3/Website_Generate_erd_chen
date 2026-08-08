@@ -410,6 +410,88 @@
             .main-card { padding: 2rem; }
             .upload-area { padding: 2rem; }
         }
+
+        /* Support Section Styles */
+        .support-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(0, 217, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            animation: fadeInUp 0.8s ease 0.5s backwards;
+        }
+
+        .support-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+
+        .support-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .support-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .saweria-btn {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.3);
+        }
+
+        .saweria-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 107, 53, 0.4);
+            border-color: rgba(255, 107, 53, 0.5);
+        }
+
+        .coffee-btn {
+            background: linear-gradient(135deg, #ffdd44, #ffc107);
+            color: #2c2c2c;
+            box-shadow: 0 4px 16px rgba(255, 221, 68, 0.3);
+        }
+
+        .coffee-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(255, 221, 68, 0.4);
+            border-color: rgba(255, 221, 68, 0.5);
+        }
+
+        .btn-icon {
+            font-size: 1.1rem;
+        }
+
+        .btn-text {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .support-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .support-btn {
+                width: 200px;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
@@ -424,6 +506,21 @@
                 <span class="db-badge">🪟 SQL Server</span>
                 <span class="db-badge">🪶 SQLite</span>
                 <span class="db-badge">📄 SQL Standar Lainnya</span>
+            </div>
+            
+            <!-- Support Section -->
+            <div class="support-section">
+                <p class="support-text">❤️ Dukung proyek ini agar tetap gratis dan terus berkembang!</p>
+                <div class="support-buttons">
+                    <a href="https://saweria.co/andypratama3" target="_blank" rel="noopener noreferrer" class="support-btn saweria-btn">
+                        <span class="btn-icon">🇮🇩</span>
+                        <span class="btn-text">Sawer di Saweria</span>
+                    </a>
+                    <a href="https://buymeacoffee.com/andypratama3" target="_blank" rel="noopener noreferrer" class="support-btn coffee-btn">
+                        <span class="btn-icon">☕</span>
+                        <span class="btn-text">Buy Me a Coffee</span>
+                    </a>
+                </div>
             </div>
         </header>
 
@@ -548,9 +645,14 @@ CREATE TABLE orders (
                     Andy Pratama
                 </a>
             </h3>
-            <a href="https://buymeacoffee.com/andypratama3" target="_blank" rel="noopener noreferrer">
-                <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee" alt="Buy Me a Coffee">
-            </a>
+            <div style="display: flex; justify-content: center; align-items: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+                <a href="https://buymeacoffee.com/andypratama3" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Support-yellow?style=for-the-badge&logo=buy-me-a-coffee" alt="Buy Me a Coffee">
+                </a>
+                <a href="https://saweria.co/andypratama3" target="_blank" rel="noopener noreferrer">
+                    <img src="https://img.shields.io/badge/Saweria-Dukung%20Saya-orange?style=for-the-badge&logo=heart&logoColor=white" alt="Saweria">
+                </a>
+            </div>
         </footer>
     </div>
 
