@@ -4,43 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <!-- Primary Meta Tags -->
-    <title>ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis</title>
-    <meta name="title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
-    <meta name="description" content="ERD Generator adalah tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Generate ERD otomatis dengan smart layout, collision detection, dan dukungan relasi 1:N dan M:N. Export ke format .drawio.">
-    <meta name="keywords" content="ERD Generator, Chen Notation, ERD, Entity Relationship Diagram, SQL to ERD, Database Design Tool, drawio, Smart Layout, Collision Detection, generate erd, buat erd, diagram database, desain database, mysql to erd, postgresql to erd, free erd tool, online erd generator, notasi chen, erd online, database visualization, schema diagram">
+    <title>ERD Generator - Notasi Chen | Multi-Database (MySQL, PostgreSQL, SQL Server, SQLite)</title>
+    <meta name="title" content="ERD Generator - Notasi Chen | Multi-Database SQL to ERD">
+    <meta name="description" content="ERD Generator adalah tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Mendukung MySQL, PostgreSQL, SQL Server, SQLite, dan dialek SQL standar lainnya. Generate ERD otomatis dengan smart layout, deteksi relasi 1:N dan M:N, dan export ke format .drawio.">
+    <meta name="keywords" content="ERD Generator, Chen Notation, ERD, Entity Relationship Diagram, SQL to ERD, Database Design Tool, drawio, Smart Layout, Collision Detection, generate erd, buat erd, diagram database, desain database, mysql to erd, postgresql to erd, sql server to erd, sqlite to erd, free erd tool, online erd generator, notasi chen, erd online, database visualization, schema diagram, multi database erd">
     <meta name="author" content="Andy Pratama">
     <meta name="robots" content="index, follow">
     <meta name="language" content="Indonesian">
     <meta name="revisit-after" content="7 days">
     <meta name="rating" content="general">
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://website-generate-erd-chen.vercel.app/">
-    
+
     <!-- Google Site Verification -->
     <meta name="google-site-verification" content="XShhQ1RuY_570n6Lv4mG5Dk38o62_KeZmWjhlSswwMg" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://website-generate-erd-chen.vercel.app/">
     <meta property="og:site_name" content="ERD Generator - Notasi Chen">
-    <meta property="og:title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
-    <meta property="og:description" content="Tool gratis untuk generate Entity Relationship Diagram (ERD) dari SQL dengan notasi Chen. Smart layout, collision detection, dan dukungan relasi M:N. Export ke .drawio.">
+    <meta property="og:title" content="ERD Generator - Notasi Chen | Multi-Database SQL to ERD">
+    <meta property="og:description" content="Tool gratis untuk generate Entity Relationship Diagram (ERD) dari SQL dengan notasi Chen. Mendukung MySQL, PostgreSQL, SQL Server, dan SQLite. Smart layout, deteksi relasi M:N. Export ke .drawio.">
     <meta property="og:image" content="https://website-generate-erd-chen.vercel.app/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="id_ID">
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://website-generate-erd-chen.vercel.app/">
-    <meta name="twitter:title" content="ERD Generator - Notasi Chen | Generate ERD dari SQL Otomatis">
-    <meta name="twitter:description" content="Tool gratis untuk generate Entity Relationship Diagram (ERD) dari SQL dengan notasi Chen. Smart layout, collision detection, dan dukungan relasi M:N.">
+    <meta name="twitter:title" content="ERD Generator - Notasi Chen | Multi-Database SQL to ERD">
+    <meta name="twitter:description" content="Tool gratis untuk generate ERD dari SQL dengan notasi Chen. Mendukung MySQL, PostgreSQL, SQL Server, dan SQLite.">
     <meta name="twitter:image" content="https://website-generate-erd-chen.vercel.app/og-image.png">
     <meta name="twitter:creator" content="@andypratama3">
-    
+
     <!-- Additional SEO Meta Tags -->
     <meta name="theme-color" content="#0a0e27">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -49,7 +49,7 @@
     <meta name="application-name" content="ERD Generator - Notasi Chen">
     <meta name="msapplication-TileColor" content="#0a0e27">
     <meta name="msapplication-tooltip" content="Generate ERD dari SQL">
-    
+
     <!-- Structured Data / JSON-LD for SEO -->
     <script type="application/ld+json">
     {
@@ -57,95 +57,71 @@
       "@type": "WebApplication",
       "name": "ERD Generator - Notasi Chen",
       "url": "https://website-generate-erd-chen.vercel.app/",
-      "description": "Tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Generate ERD otomatis dengan smart layout dan collision detection.",
+      "description": "Tool gratis berbasis web untuk membuat Entity Relationship Diagram (ERD) menggunakan notasi Chen dari file SQL. Mendukung MySQL, PostgreSQL, SQL Server, dan SQLite.",
       "applicationCategory": "DeveloperApplication",
       "operatingSystem": "Any",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Andy Pratama",
-        "url": "https://github.com/andypratama3"
-      },
-      "creator": {
-        "@type": "Person",
-        "name": "Andy Pratama",
-        "url": "https://github.com/andypratama3"
-      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Person", "name": "Andy Pratama", "url": "https://github.com/andypratama3" },
+      "creator": { "@type": "Person", "name": "Andy Pratama", "url": "https://github.com/andypratama3" },
       "screenshot": "https://website-generate-erd-chen.vercel.app/og-image.png",
-      "softwareVersion": "2.0",
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "ratingCount": "1"
-      },
+      "softwareVersion": "3.0",
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1" },
       "featureList": [
         "Generate ERD dari SQL",
+        "Mendukung MySQL, PostgreSQL, SQL Server, SQLite",
         "Notasi Chen",
         "Smart Layout Algorithm",
         "Collision Detection",
         "Dukungan Relasi 1:N dan M:N",
+        "Deteksi Primary Key & Foreign Key Composite",
         "Export ke .drawio",
         "Gratis dan Open Source"
       ]
     }
     </script>
-    
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" href="/icon-192.png">
-    
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700;900&display=swap');
-        
+
         :root {
             --bg-dark: #0a0e27;
             --bg-card: #151b3d;
+            --bg-input: rgba(255, 255, 255, 0.05);
             --accent-primary: #00d9ff;
             --accent-secondary: #7b2ff7;
             --accent-success: #00ff88;
             --accent-error: #ff3864;
+            --accent-warning: #ffaa00;
             --text-primary: #ffffff;
             --text-secondary: #8b92b8;
             --border-color: rgba(0, 217, 255, 0.2);
             --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.15);
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: var(--bg-dark);
             color: var(--text-primary);
             min-height: 100vh;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 20% 50%, rgba(123, 47, 247, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.15) 0%, transparent 50%);
             overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        header {
-            text-align: center;
-            padding: 3rem 0;
-            position: relative;
-        }
-        
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+
+        header { text-align: center; padding: 3rem 0 1.5rem; position: relative; }
+
         h1 {
             font-size: 4rem;
             font-weight: 900;
@@ -157,15 +133,34 @@
             letter-spacing: -0.03em;
             animation: fadeInUp 0.8s ease;
         }
-        
+
         .subtitle {
             font-family: 'JetBrains Mono', monospace;
             font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 0.6rem;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
-        
+
+        .db-badges {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.2rem 0 0.5rem;
+            animation: fadeInUp 0.8s ease 0.3s backwards;
+        }
+
+        .db-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background: rgba(0, 217, 255, 0.06);
+            color: var(--text-secondary);
+        }
+
         .main-card {
             background: var(--bg-card);
             border-radius: 24px;
@@ -176,17 +171,15 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .main-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
         }
-        
+
         .upload-area {
             border: 2px dashed var(--border-color);
             border-radius: 16px;
@@ -198,50 +191,27 @@
             margin-bottom: 2rem;
             background: rgba(0, 217, 255, 0.03);
         }
-        
-        .upload-area:hover,
-        .upload-area.dragover {
+
+        .upload-area:hover, .upload-area.dragover {
             border-color: var(--accent-primary);
             background: rgba(0, 217, 255, 0.08);
             transform: scale(1.02);
         }
-        
-        .upload-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            opacity: 0.6;
-        }
-        
-        .upload-text {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .upload-hint {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-        
-        #fileInput {
-            display: none;
-        }
-        
-        .config-section {
-            margin: 2rem 0;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .config-section.active {
-            display: block;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
+
+        .upload-icon { font-size: 4rem; margin-bottom: 1rem; opacity: 0.6; }
+        .upload-text { font-size: 1.2rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .upload-hint { color: var(--text-secondary); font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; }
+
+        #fileInput { display: none; }
+
+        .config-section { margin: 2rem 0; display: none; animation: fadeIn 0.5s ease; }
+        .config-section.active { display: block; }
+
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+        @media (max-width: 640px) { .form-row { grid-template-columns: 1fr; } }
+
+        .form-group { margin-bottom: 1.5rem; }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
@@ -249,12 +219,13 @@
             color: var(--text-primary);
             font-size: 0.95rem;
         }
-        
-        input[type="text"],
-        select {
+
+        .label-hint { color: var(--text-secondary); font-weight: 400; font-size: 0.8rem; }
+
+        input[type="text"], input[type="number"], select {
             width: 100%;
             padding: 0.9rem 1.2rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: var(--bg-input);
             border: 1px solid var(--border-color);
             border-radius: 12px;
             color: var(--text-primary);
@@ -262,15 +233,74 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
         }
-        
-        input[type="text"]:focus,
-        select:focus {
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2300d9ff' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
             outline: none;
             border-color: var(--accent-primary);
-            background: rgba(0, 217, 255, 0.08);
+            background-color: rgba(0, 217, 255, 0.08);
             box-shadow: 0 0 0 4px rgba(0, 217, 255, 0.1);
         }
-        
+
+        details.advanced {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        details.advanced summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-size: 0.95rem;
+            list-style: none;
+        }
+        details.advanced summary::-webkit-details-marker { display: none; }
+        details.advanced summary::before { content: '▸ '; }
+        details.advanced[open] summary::before { content: '▾ '; }
+        details.advanced .form-row { margin-top: 1.2rem; }
+
+        details.examples {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin-top: 1.5rem;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        details.examples summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            list-style: none;
+        }
+        details.examples summary::-webkit-details-marker { display: none; }
+        details.examples summary::before { content: '▸ '; }
+        details.examples[open] summary::before { content: '▾ '; }
+        details.examples pre {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        details.examples h4 { color: var(--accent-primary); font-size: 0.85rem; margin-top: 1rem; }
+        details.examples h4:first-of-type { margin-top: 0; }
+
         .btn {
             padding: 1rem 2.5rem;
             font-size: 1.05rem;
@@ -283,28 +313,27 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             color: white;
             box-shadow: 0 8px 32px rgba(0, 217, 255, 0.3);
         }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4);
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 48px rgba(0, 217, 255, 0.4); }
+        .btn-primary:active { transform: translateY(0); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.6rem;
+            font-size: 0.95rem;
         }
-        
-        .btn-primary:active {
-            transform: translateY(0);
-        }
-        
-        .btn-primary:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
+        .btn-secondary:hover { color: var(--text-primary); border-color: var(--accent-primary); }
+
+        .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+
         .status-area {
             margin-top: 2rem;
             padding: 1.5rem;
@@ -313,12 +342,8 @@
             border: 1px solid var(--border-color);
             display: none;
         }
-        
-        .status-area.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
+        .status-area.active { display: block; animation: fadeIn 0.5s ease; }
+
         .status-item {
             padding: 0.8rem 0;
             font-family: 'JetBrains Mono', monospace;
@@ -326,16 +351,17 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-        
-        .status-icon {
-            font-size: 1.2rem;
-        }
-        
+        .status-item:last-child { border-bottom: none; }
+
+        .status-icon { font-size: 1.2rem; flex-shrink: 0; }
         .status-success { color: var(--accent-success); }
         .status-error { color: var(--accent-error); }
+        .status-warning { color: var(--accent-warning); }
         .status-processing { color: var(--accent-primary); }
-        
+        .status-info { color: var(--text-secondary); }
+
         .download-btn {
             display: none;
             margin-top: 1.5rem;
@@ -343,37 +369,13 @@
             background: var(--accent-success);
             color: var(--bg-dark);
         }
-        
-        .download-btn.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .processing {
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        
+        .download-btn.active { display: block; animation: fadeIn 0.5s ease; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .processing { animation: pulse 1.5s ease-in-out infinite; }
+
         .file-info {
             display: none;
             margin-top: 1rem;
@@ -384,12 +386,17 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
         }
-        
-        .file-info.active {
-            display: block;
-            animation: fadeIn 0.3s ease;
+        .file-info.active { display: block; animation: fadeIn 0.3s ease; }
+        .file-info .dialect-tag {
+            display: inline-block;
+            margin-left: 0.6rem;
+            padding: 0.15rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(123, 47, 247, 0.2);
+            color: #c9a8ff;
+            font-size: 0.78rem;
         }
-        
+
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -397,19 +404,11 @@
             font-size: 0.9rem;
             font-family: 'JetBrains Mono', monospace;
         }
-        
+
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .main-card {
-                padding: 2rem;
-            }
-            
-            .upload-area {
-                padding: 2rem;
-            }
+            h1 { font-size: 2.5rem; }
+            .main-card { padding: 2rem; }
+            .upload-area { padding: 2rem; }
         }
     </style>
 </head>
@@ -417,56 +416,135 @@
     <div class="container">
         <header>
             <h1>ERD Generator</h1>
-            <p class="subtitle">Chen Notation - Improved Layout Algorithm</p>
+            <p class="subtitle">Chen Notation - Multi-Database Layout Engine</p>
             <p class="subtitle">Pastikan Databasenya Kosong ya kaka kaka hehehe 😁</p>
-            
-
+            <div class="db-badges">
+                <span class="db-badge">🐬 MySQL / MariaDB</span>
+                <span class="db-badge">🐘 PostgreSQL</span>
+                <span class="db-badge">🪟 SQL Server</span>
+                <span class="db-badge">🪶 SQLite</span>
+                <span class="db-badge">📄 SQL Standar Lainnya</span>
+            </div>
         </header>
-        
+
         <div class="main-card">
             <div class="upload-area" id="uploadArea">
                 <div class="upload-icon">📤</div>
-                <div class="upload-text">Upload SQL File</div>
-                <div class="upload-hint">Click to browse or drag & drop your .sql file here</div>
-                <input type="file" id="fileInput" accept=".sql">
+                <div class="upload-text">Upload File SQL (Schema / DDL)</div>
+                <div class="upload-hint">Klik untuk pilih file atau drag & drop file .sql di sini</div>
+                <input type="file" id="fileInput" accept=".sql,.txt">
             </div>
-            
+
             <div class="file-info" id="fileInfo">
-                <strong>📄 File loaded:</strong> <span id="fileName"></span> (<span id="fileSize"></span>)
+                <strong>📄 File dimuat:</strong> <span id="fileName"></span> (<span id="fileSize"></span>)
+                <span class="dialect-tag" id="dialectTag"></span>
             </div>
-            
+
             <div class="config-section" id="configSection">
-                <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">⚙️ Configuration</h3>
-                
-                <div class="form-group">
-                    <label for="outputName">Output File Name</label>
-                    <input type="text" id="outputName" placeholder="my-erd-diagram" value="erd-chen-improved">
+                <h3 style="margin-bottom: 1.5rem; color: var(--accent-primary);">⚙️ Konfigurasi</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="outputName">Nama File Output</label>
+                        <input type="text" id="outputName" placeholder="my-erd-diagram" value="erd-chen-diagram">
+                    </div>
+                    <div class="form-group">
+                        <label for="diagramName">Nama Diagram</label>
+                        <input type="text" id="diagramName" placeholder="My Database ERD" value="ERD Chen Notation">
+                    </div>
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="diagramName">Diagram Name</label>
-                    <input type="text" id="diagramName" placeholder="My Database ERD" value="ERD Chen FINAL">
+                    <label for="dialectSelect">Dialek SQL <span class="label-hint">(parser bekerja otomatis untuk semua dialek, ini hanya memengaruhi label yang ditampilkan)</span></label>
+                    <select id="dialectSelect">
+                        <option value="auto">Auto-detect</option>
+                        <option value="mysql">MySQL / MariaDB</option>
+                        <option value="postgres">PostgreSQL</option>
+                        <option value="sqlserver">SQL Server</option>
+                        <option value="sqlite">SQLite</option>
+                        <option value="generic">SQL Standar / Lainnya</option>
+                    </select>
                 </div>
-                
-                <button class="btn btn-primary" id="generateBtn">
-                    🚀 Generate ERD
-                </button>
+
+                <details class="advanced">
+                    <summary>Pengaturan Lanjutan</summary>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="skipColumns">Lewati Kolom Ini <span class="label-hint">(pisahkan dengan koma)</span></label>
+                            <input type="text" id="skipColumns" value="created_at,updated_at,deleted_at,remember_token,email_verified_at">
+                        </div>
+                        <div class="form-group">
+                            <label for="maxPerLayer">Maks. Tabel per Baris <span class="label-hint">(kepadatan layout)</span></label>
+                            <input type="number" id="maxPerLayer" value="3" min="1" max="8">
+                        </div>
+                    </div>
+                </details>
+
+                <div class="btn-row">
+                    <button class="btn btn-primary" id="generateBtn">🚀 Generate ERD</button>
+                    <button class="btn btn-secondary" id="resetBtn">🔄 Reset</button>
+                </div>
             </div>
-            
+
             <div class="status-area" id="statusArea">
                 <div id="statusMessages"></div>
             </div>
-            
+
             <button class="btn btn-primary download-btn" id="downloadBtn">
                 💾 Download ERD (.drawio)
             </button>
-        </div>
-        
-        <footer>
-            Made with ❤️ | Improved Layout Algorithm v2.0
 
-            <h3 style="margin-bottom: 20px;">Develop By 
-                <a style="text-decoration: none; margin-bottom: 20px;"  href="https://github.com/andypratama3/erd-generator-chen-notation" target="_blank" rel="noopener noreferrer">
+            <details class="examples">
+                <summary>Contoh format SQL yang didukung</summary>
+                <h4>MySQL / MariaDB</h4>
+                <pre>CREATE TABLE `users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB;
+
+ALTER TABLE `posts`
+  ADD CONSTRAINT `fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);</pre>
+                <h4>PostgreSQL</h4>
+                <pre>CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
+
+CREATE TABLE posts (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id)
+);</pre>
+                <h4>SQL Server</h4>
+                <pre>CREATE TABLE [dbo].[Users] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [Name] NVARCHAR(255)
+);
+
+CREATE TABLE [dbo].[Orders] (
+  [Id] INT IDENTITY(1,1) PRIMARY KEY,
+  [UserId] INT,
+  CONSTRAINT [FK1] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users]([Id])
+);</pre>
+                <h4>SQLite</h4>
+                <pre>CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT
+);
+
+CREATE TABLE orders (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,
+  FOREIGN KEY (user_id) REFERENCES users (id)
+);</pre>
+            </details>
+        </div>
+
+        <footer>
+            Made with ❤️ | Multi-Database Layout Engine v3.0
+
+            <h3 style="margin-bottom: 20px;">Develop By
+                <a style="text-decoration: none; margin-bottom: 20px;" href="https://github.com/andypratama3/erd-generator-chen-notation" target="_blank" rel="noopener noreferrer">
                     Andy Pratama
                 </a>
             </h3>
@@ -478,20 +556,21 @@
 
     <script>
         // ======================================================
-        // CONFIGURATION
+        // CONFIGURATION (layout constants; skip-columns & density
+        // are user-configurable in the UI, read at generate time)
         // ======================================================
         const CONFIG = {
             layout: {
                 paddingX: 250,
                 paddingY: 200,
-                colWidth: 800,        // Diperbesar untuk menghindari overlap
+                colWidth: 800,
                 entityWidth: 180,
                 entityHeight: 50,
-                attrLeftX: -260,      // Lebih jauh ke kiri
-                attrRightX: 260,      // Lebih jauh ke kanan
+                attrLeftX: -260,
+                attrRightX: 260,
                 attrHeight: 28,
                 attrWidth: 140,
-                attrSpacing: 42,      // Spacing antar attribute diperbesar
+                attrSpacing: 42,
                 relationshipWidth: 110,
                 relationshipHeight: 65,
                 relationshipOffsetY: -20,
@@ -499,248 +578,467 @@
             dynamicHeight: {
                 base: 50,
                 attrSpacing: 42,
-                bottomPadding: 250,   // Padding bawah diperbesar
-                topPadding: 100,      // Padding atas diperbesar
-                minLayerHeight: 500,  // Minimum height diperbesar
+                bottomPadding: 250,
+                topPadding: 100,
+                minLayerHeight: 500,
             },
-            skipColumns: new Set([
-                'created_at', 'updated_at', 'deleted_at', 
-                'remember_token', 'email_verified_at'
-            ]),
-            maxTablesPerLayer: 3,     // Dikurangi dari 4 ke 3
         };
 
         // State
         let sqlContent = '';
         let erdXML = '';
-        
+        let detectedDialect = '';
+
         // DOM Elements
         const uploadArea = document.getElementById('uploadArea');
         const fileInput = document.getElementById('fileInput');
         const fileInfo = document.getElementById('fileInfo');
         const fileName = document.getElementById('fileName');
         const fileSize = document.getElementById('fileSize');
+        const dialectTag = document.getElementById('dialectTag');
+        const dialectSelect = document.getElementById('dialectSelect');
         const configSection = document.getElementById('configSection');
         const generateBtn = document.getElementById('generateBtn');
+        const resetBtn = document.getElementById('resetBtn');
         const statusArea = document.getElementById('statusArea');
         const statusMessages = document.getElementById('statusMessages');
         const downloadBtn = document.getElementById('downloadBtn');
-        
+
         // Upload Area Events
         uploadArea.addEventListener('click', () => fileInput.click());
-        
+
         uploadArea.addEventListener('dragover', (e) => {
             e.preventDefault();
             uploadArea.classList.add('dragover');
         });
-        
+
         uploadArea.addEventListener('dragleave', () => {
             uploadArea.classList.remove('dragover');
         });
-        
+
         uploadArea.addEventListener('drop', (e) => {
             e.preventDefault();
             uploadArea.classList.remove('dragover');
             const file = e.dataTransfer.files[0];
-            if (file && file.name.endsWith('.sql')) {
+            if (file && /\.(sql|txt)$/i.test(file.name)) {
                 handleFile(file);
             } else {
-                addStatus('❌ Please upload a .sql file', 'error');
+                statusArea.classList.add('active');
+                addStatus('❌ Mohon upload file .sql', 'error');
             }
         });
-        
+
         fileInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
-            if (file) {
-                handleFile(file);
-            }
+            if (file) handleFile(file);
         });
-        
+
         function handleFile(file) {
             const reader = new FileReader();
-            
+
             reader.onload = (e) => {
                 sqlContent = e.target.result;
+
+                if (!sqlContent || !sqlContent.trim()) {
+                    statusArea.classList.add('active');
+                    statusMessages.innerHTML = '';
+                    addStatus('❌ File kosong atau tidak dapat dibaca', 'error');
+                    return;
+                }
+
+                detectedDialect = detectDialect(sqlContent);
+
                 fileName.textContent = file.name;
                 fileSize.textContent = (file.size / 1024).toFixed(1) + ' KB';
+                dialectTag.textContent = detectedDialect;
                 fileInfo.classList.add('active');
                 configSection.classList.add('active');
                 statusArea.classList.remove('active');
                 downloadBtn.classList.remove('active');
                 statusMessages.innerHTML = '';
+                generateBtn.disabled = false;
             };
-            
-            reader.readAsText(file);
+
+            reader.onerror = () => {
+                statusArea.classList.add('active');
+                addStatus('❌ Gagal membaca file', 'error');
+            };
+
+            reader.readAsText(file, 'UTF-8');
         }
-        
+
+        resetBtn.addEventListener('click', () => {
+            sqlContent = '';
+            erdXML = '';
+            fileInput.value = '';
+            fileInfo.classList.remove('active');
+            configSection.classList.remove('active');
+            statusArea.classList.remove('active');
+            downloadBtn.classList.remove('active');
+            statusMessages.innerHTML = '';
+            generateBtn.disabled = false;
+        });
+
+        // ======================================================
+        // DIALECT DETECTION (informational only — the parser
+        // below understands every dialect's syntax regardless
+        // of what is detected here)
+        // ======================================================
+        function detectDialect(sql) {
+            const hasBacktick = /`\w+`/.test(sql);
+            const hasBracket = /\[\w+\]/.test(sql);
+            const hasDoubleQuote = /"\w+"/.test(sql);
+
+            if (/ENGINE\s*=/i.test(sql) || /AUTO_INCREMENT/i.test(sql) || hasBacktick) {
+                return 'MySQL / MariaDB';
+            }
+            if (/IDENTITY\s*\(\s*\d+\s*,\s*\d+\s*\)/i.test(sql) || (hasBracket && /NVARCHAR|GO\b/i.test(sql))) {
+                return 'SQL Server';
+            }
+            if (/AUTOINCREMENT/i.test(sql) && !hasBacktick) {
+                return 'SQLite';
+            }
+            if (/SERIAL\b/i.test(sql) || /\bJSONB\b/i.test(sql) || /RETURNING\b/i.test(sql) || hasDoubleQuote) {
+                return 'PostgreSQL';
+            }
+            return 'SQL Standar (auto-detect)';
+        }
+
         // Generate ERD
         generateBtn.addEventListener('click', generateERD);
-        
+
         function generateERD() {
             if (!sqlContent) {
-                addStatus('❌ Please upload a SQL file first', 'error');
+                statusArea.classList.add('active');
+                addStatus('❌ Mohon upload file SQL terlebih dahulu', 'error');
                 return;
             }
-            
+
             generateBtn.disabled = true;
             statusArea.classList.add('active');
             statusMessages.innerHTML = '';
             downloadBtn.classList.remove('active');
-            
-            addStatus('🔍 Parsing SQL file...', 'processing');
-            
+
+            const selectedDialect = dialectSelect.value === 'auto' ? detectedDialect : dialectSelect.options[dialectSelect.selectedIndex].text;
+            addStatus(`🔍 Mem-parsing SQL (${selectedDialect})...`, 'processing');
+
             setTimeout(() => {
                 try {
-                    // Parse SQL
                     const { tables, foreignKeys, primaryKeys } = parseSQL(sqlContent);
-                    addStatus(`✅ Found ${Object.keys(tables).length} tables`, 'success');
-                    
+                    const tableCount = Object.keys(tables).length;
+
+                    if (tableCount === 0) {
+                        addStatus('❌ Tidak ada tabel yang terdeteksi. Pastikan file berisi statement CREATE TABLE yang valid.', 'error');
+                        generateBtn.disabled = false;
+                        return;
+                    }
+
+                    addStatus(`✅ Ditemukan ${tableCount} tabel`, 'success');
+
+                    // Count total relations & detect broken references (FK pointing to a table not in the file)
+                    let totalFkCount = 0;
+                    let missingRefCount = 0;
+                    for (const [table, fks] of Object.entries(foreignKeys)) {
+                        for (const [, refTable] of fks) {
+                            totalFkCount++;
+                            if (!tables[refTable]) missingRefCount++;
+                        }
+                    }
+                    if (totalFkCount > 0) {
+                        addStatus(`🔗 Ditemukan ${totalFkCount} foreign key`, 'success');
+                    } else {
+                        addStatus('⚠️ Tidak ada foreign key terdeteksi — ERD hanya akan menampilkan entitas tanpa relasi', 'warning');
+                    }
+                    if (missingRefCount > 0) {
+                        addStatus(`⚠️ ${missingRefCount} foreign key mengarah ke tabel yang tidak ditemukan di file ini (dilewati)`, 'warning');
+                    }
+
                     // Detect junction tables
                     const junctionTables = detectJunctionTables(tables, foreignKeys);
                     if (junctionTables.size > 0) {
-                        addStatus(`🔗 Detected ${junctionTables.size} junction tables (M:N)`, 'success');
+                        addStatus(`🔀 Terdeteksi ${junctionTables.size} tabel junction (relasi M:N)`, 'success');
                     }
-                    
-                    // Generate ERD with improved algorithm
-                    addStatus('🎨 Generating ERD with improved layout...', 'processing');
+
+                    // Generate ERD
+                    addStatus('🎨 Menyusun layout ERD...', 'processing');
                     erdXML = generateERDXML(tables, foreignKeys, primaryKeys, junctionTables);
-                    
-                    addStatus('✅ ERD generated successfully!', 'success');
+
+                    addStatus('✅ ERD berhasil dibuat!', 'success');
                     generateBtn.disabled = false;
                     downloadBtn.classList.add('active');
-                    
+
                 } catch (error) {
                     addStatus(`❌ Error: ${error.message}`, 'error');
                     generateBtn.disabled = false;
                     console.error(error);
                 }
-            }, 500);
+            }, 300);
         }
-        
+
         // Download ERD
         downloadBtn.addEventListener('click', () => {
-            const outputName = document.getElementById('outputName').value || 'erd-chen-improved';
-            const filename = outputName.endsWith('.drawio') ? outputName : outputName + '.drawio';
-            
+            let outputName = (document.getElementById('outputName').value || 'erd-chen-diagram').trim();
+            outputName = outputName.replace(/[\\/:*?"<>|]/g, '-'); // sanitize filename
+            if (!outputName) outputName = 'erd-chen-diagram';
+            const filename = outputName.toLowerCase().endsWith('.drawio') ? outputName : outputName + '.drawio';
+
             const blob = new Blob([erdXML], { type: 'application/xml' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
             a.download = filename;
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            
-            addStatus(`💾 Downloaded: ${filename}`, 'success');
+
+            addStatus(`💾 Diunduh: ${filename}`, 'success');
         });
-        
+
         function addStatus(message, type) {
             const div = document.createElement('div');
             div.className = `status-item status-${type}`;
-            div.innerHTML = `<span class="status-icon">${getIcon(type)}</span><span>${message}</span>`;
+            div.innerHTML = `<span class="status-icon">${getIcon(type)}</span><span>${escapeHTML(message)}</span>`;
             statusMessages.appendChild(div);
             statusArea.scrollTop = statusArea.scrollHeight;
         }
-        
+
         function getIcon(type) {
-            return type === 'success' ? '✓' : type === 'error' ? '✗' : '⟳';
+            if (type === 'success') return '✓';
+            if (type === 'error') return '✗';
+            if (type === 'warning') return '⚠';
+            if (type === 'info') return 'ℹ';
+            return '⟳';
         }
-        
+
+        function escapeHTML(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
         // ======================================================
-        // SQL PARSER
+        // GENERIC MULTI-DIALECT SQL PARSER
+        // Understands MySQL, PostgreSQL, SQL Server, SQLite and
+        // standard ANSI SQL DDL simultaneously — no dialect
+        // switch is required, since the differences are only in
+        // identifier quoting (`, ", []) and a few dialect-only
+        // keywords which are simply ignored if present.
         // ======================================================
+
+        // Matches a single identifier in any quoting style, or unquoted
+        const NAME_TOKEN = '(?:"[^"]+"|`[^`]+`|\\[[^\\]]+\\]|[A-Za-z_][\\w$]*)';
+        const QUALIFIED_NAME = NAME_TOKEN + '(?:\\.' + NAME_TOKEN + ')?';
+
+        function stripComments(sql) {
+            sql = sql.replace(/\/\*[\s\S]*?\*\//g, ' ');   // /* block comments */
+            sql = sql.replace(/--.*$/gm, '');               // -- line comments
+            sql = sql.replace(/^\s*#.*$/gm, '');             // # line comments (MySQL)
+            return sql;
+        }
+
+        function cleanIdentifier(raw) {
+            if (!raw) return raw;
+            return raw.trim().replace(/^[`"\[]+|[`"\]]+$/g, '');
+        }
+
+        function lastPart(qualifiedName) {
+            const parts = qualifiedName.split('.');
+            return parts[parts.length - 1];
+        }
+
+        // Splits a string on a separator character, ignoring separators
+        // that appear inside parentheses or single-quoted string literals
+        function splitTopLevel(str, sepChar) {
+            const parts = [];
+            let depth = 0, current = '', inStr = false;
+            for (let i = 0; i < str.length; i++) {
+                const ch = str[i];
+                if (inStr) {
+                    current += ch;
+                    if (ch === "'" && str[i - 1] !== '\\') inStr = false;
+                    continue;
+                }
+                if (ch === "'") { inStr = true; current += ch; continue; }
+                if (ch === '(') { depth++; current += ch; continue; }
+                if (ch === ')') { depth--; current += ch; continue; }
+                if (ch === sepChar && depth === 0) { parts.push(current); current = ''; continue; }
+                current += ch;
+            }
+            if (current.trim()) parts.push(current);
+            return parts;
+        }
+
+        function extractStatements(sql) {
+            return splitTopLevel(sql, ';').map(s => s.trim()).filter(Boolean);
+        }
+
+        const CREATE_TABLE_RE = new RegExp(
+            'create\\s+(?:temp(?:orary)?\\s+|unlogged\\s+|global\\s+temporary\\s+|local\\s+temporary\\s+)?table\\s+(?:if\\s+not\\s+exists\\s+)?(' +
+            QUALIFIED_NAME + ')\\s*\\(', 'i'
+        );
+
+        function parseCreateTable(stmt) {
+            const headerMatch = stmt.match(CREATE_TABLE_RE);
+            if (!headerMatch) return null;
+            const tableName = cleanIdentifier(lastPart(headerMatch[1]));
+
+            const openIdx = stmt.indexOf('(', headerMatch.index + headerMatch[0].length - 1);
+            if (openIdx === -1) return null;
+
+            let depth = 0, closeIdx = -1;
+            for (let i = openIdx; i < stmt.length; i++) {
+                if (stmt[i] === '(') depth++;
+                else if (stmt[i] === ')') { depth--; if (depth === 0) { closeIdx = i; break; } }
+            }
+            if (closeIdx === -1) return null;
+
+            const body = stmt.slice(openIdx + 1, closeIdx);
+            return { tableName, body };
+        }
+
+        const REFERENCES_RE = new RegExp('REFERENCES\\s+(' + QUALIFIED_NAME + ')\\s*(?:\\(([^)]*)\\))?', 'i');
+        const FK_INLINE_RE = new RegExp('FOREIGN\\s+KEY\\s*\\(([^)]*)\\)\\s*REFERENCES\\s+(' + QUALIFIED_NAME + ')\\s*(?:\\(([^)]*)\\))?', 'i');
+        const NAME_START_RE = new RegExp('^(' + NAME_TOKEN + ')');
+
+        function parseTableBody(body) {
+            const columns = [];
+            const foreignKeys = [];
+            const primaryKeys = [];
+
+            const lines = splitTopLevel(body, ',').map(l => l.trim()).filter(Boolean);
+
+            for (const line of lines) {
+                // Table-level PRIMARY KEY (col1, col2, ...)
+                if (/^(CONSTRAINT\s+\S+\s+)?PRIMARY\s+KEY\s*\(/i.test(line)) {
+                    const m = line.match(/PRIMARY\s+KEY\s*\(([^)]*)\)/i);
+                    if (m) m[1].split(',').forEach(c => primaryKeys.push(cleanIdentifier(c.trim())));
+                    continue;
+                }
+
+                // Table-level FOREIGN KEY (col) REFERENCES table(col)
+                if (/^(CONSTRAINT\s+\S+\s+)?FOREIGN\s+KEY\s*\(/i.test(line)) {
+                    const m = line.match(FK_INLINE_RE);
+                    if (m) {
+                        const fkCols = m[1].split(',').map(c => cleanIdentifier(c.trim()));
+                        const refTable = cleanIdentifier(lastPart(m[2]));
+                        fkCols.forEach(fc => foreignKeys.push([fc, refTable]));
+                    }
+                    continue;
+                }
+
+                // Other table-level constraints we don't need for the ERD structure
+                if (/^(UNIQUE|CHECK|KEY|INDEX)\b/i.test(line)) continue;
+                if (/^CONSTRAINT\s+\S+\s+UNIQUE\b/i.test(line)) continue;
+
+                // Otherwise: a column definition
+                const colMatch = line.match(NAME_START_RE);
+                if (!colMatch) continue;
+                const colName = cleanIdentifier(colMatch[1]);
+                columns.push(colName);
+
+                // Inline PRIMARY KEY, e.g. `id INTEGER PRIMARY KEY`
+                if (/PRIMARY\s+KEY/i.test(line)) primaryKeys.push(colName);
+
+                // Inline REFERENCES, e.g. `user_id INTEGER REFERENCES users(id)`
+                const refMatch = line.match(REFERENCES_RE);
+                if (refMatch) {
+                    const refTable = cleanIdentifier(lastPart(refMatch[1]));
+                    foreignKeys.push([colName, refTable]);
+                }
+            }
+
+            return { columns, foreignKeys, primaryKeys };
+        }
+
+        const ALTER_TABLE_RE = new RegExp('^\\s*ALTER\\s+TABLE\\s+(?:ONLY\\s+)?(' + QUALIFIED_NAME + ')', 'i');
+
         function parseSQL(sql) {
+            sql = stripComments(sql);
+            const statements = extractStatements(sql);
+
             const tables = {};
             const foreignKeys = {};
             const primaryKeys = {};
-            
-            // 1. Parse CREATE TABLE statements
-            const tableRegex = /CREATE TABLE `(\w+)`\s*\((.*?)\)\s*ENGINE/gis;
-            let match;
-            
-            while ((match = tableRegex.exec(sql)) !== null) {
-                const tableName = match[1];
-                const tableBody = match[2];
-                
-                const cols = [];
-                const fks = [];
-                let pk = null;
-                
-                const lines = tableBody.split('\n');
-                
-                for (const line of lines) {
-                    const trimmed = line.trim();
-                    
-                    if (trimmed.startsWith('`')) {
-                        const colMatch = trimmed.match(/`(\w+)`/);
-                        if (colMatch) cols.push(colMatch[1]);
-                    }
-                    
-                    if (trimmed.startsWith('PRIMARY KEY')) {
-                        const pkMatch = trimmed.match(/PRIMARY KEY\s*\(`(\w+)`\)/i);
-                        if (pkMatch) pk = pkMatch[1];
-                    }
-                    
-                    if (trimmed.includes('FOREIGN KEY')) {
-                        const fkMatch = trimmed.match(/FOREIGN KEY \(`(\w+)`\) REFERENCES `(\w+)`/);
-                        if (fkMatch) fks.push([fkMatch[1], fkMatch[2]]);
-                    }
-                }
-                
-                tables[tableName] = cols;
-                foreignKeys[tableName] = fks;
-                primaryKeys[tableName] = pk;
+
+            // Pass 1: CREATE TABLE statements
+            for (const stmt of statements) {
+                if (!/^\s*CREATE\s+/i.test(stmt) || !/\bTABLE\b/i.test(stmt.slice(0, 80))) continue;
+                const parsed = parseCreateTable(stmt);
+                if (!parsed) continue;
+
+                const { tableName, body } = parsed;
+                const { columns, foreignKeys: fks, primaryKeys: pks } = parseTableBody(body);
+
+                // Merge if the same table name appears more than once (defensive)
+                tables[tableName] = (tables[tableName] || []).concat(columns.filter(c => !(tables[tableName] || []).includes(c)));
+                foreignKeys[tableName] = (foreignKeys[tableName] || []).concat(fks);
+                primaryKeys[tableName] = (primaryKeys[tableName] && primaryKeys[tableName].length) ? primaryKeys[tableName] : pks;
             }
 
-            // 2. Parse ALTER TABLE statements for additional Foreign Keys and Primary Keys
-            const alterTableRegex = /ALTER TABLE `(\w+)`(.*?);/gis;
-            while ((match = alterTableRegex.exec(sql)) !== null) {
-                const tableName = match[1];
-                const alterBody = match[2];
-                
-                // Match Foreign Keys: ADD CONSTRAINT `name` FOREIGN KEY (`col`) REFERENCES `table` (`col`)
-                const fkRegex = /ADD CONSTRAINT `.*?` FOREIGN KEY \(`(\w+)`\) REFERENCES `(\w+)`/gi;
+            // Pass 2: ALTER TABLE ... ADD CONSTRAINT / ADD FOREIGN KEY / ADD PRIMARY KEY
+            for (const stmt of statements) {
+                const alterMatch = stmt.match(ALTER_TABLE_RE);
+                if (!alterMatch) continue;
+                const tableName = cleanIdentifier(lastPart(alterMatch[1]));
+                if (!foreignKeys[tableName]) foreignKeys[tableName] = [];
+
+                const fkRegex = new RegExp(
+                    '(?:ADD\\s+CONSTRAINT\\s+\\S+\\s+)?FOREIGN\\s+KEY\\s*\\(([^)]*)\\)\\s*REFERENCES\\s+(' +
+                    QUALIFIED_NAME + ')\\s*(?:\\(([^)]*)\\))?', 'gi'
+                );
                 let fkMatch;
-                while ((fkMatch = fkRegex.exec(alterBody)) !== null) {
-                    if (!foreignKeys[tableName]) foreignKeys[tableName] = [];
-                    // Avoid duplicates if already parsed from CREATE TABLE
-                    const exists = foreignKeys[tableName].some(fk => fk[0] === fkMatch[1] && fk[1] === fkMatch[2]);
-                    if (!exists) {
-                        foreignKeys[tableName].push([fkMatch[1], fkMatch[2]]);
+                while ((fkMatch = fkRegex.exec(stmt)) !== null) {
+                    const fkCols = fkMatch[1].split(',').map(c => cleanIdentifier(c.trim()));
+                    const refTable = cleanIdentifier(lastPart(fkMatch[2]));
+                    for (const fc of fkCols) {
+                        const exists = foreignKeys[tableName].some(fk => fk[0] === fc && fk[1] === refTable);
+                        if (!exists) foreignKeys[tableName].push([fc, refTable]);
                     }
                 }
 
-                // Match Primary Keys: ADD PRIMARY KEY (`col`)
-                const pkMatch = alterBody.match(/ADD PRIMARY KEY \(`(\w+)`\)/i);
-                if (pkMatch && !primaryKeys[tableName]) {
-                    primaryKeys[tableName] = pkMatch[1];
+                const pkMatch = stmt.match(/ADD\s+PRIMARY\s+KEY\s*\(([^)]*)\)/i);
+                if (pkMatch && (!primaryKeys[tableName] || primaryKeys[tableName].length === 0)) {
+                    primaryKeys[tableName] = pkMatch[1].split(',').map(c => cleanIdentifier(c.trim()));
                 }
             }
-            
+
             return { tables, foreignKeys, primaryKeys };
         }
-        
+
         // ======================================================
-        // DETECT JUNCTION TABLES
+        // DETECT JUNCTION TABLES (M:N)
         // ======================================================
         function detectJunctionTables(tables, foreignKeys) {
+            const skipColumns = getSkipColumns();
             const junctionTables = new Set();
-            
+
             for (const [table, fks] of Object.entries(foreignKeys)) {
                 if (fks.length >= 2) {
                     const fkCols = new Set(fks.map(fk => fk[0]));
-                    const nonFkCols = tables[table].filter(col => 
-                        !fkCols.has(col) && !CONFIG.skipColumns.has(col)
+                    const nonFkCols = (tables[table] || []).filter(col =>
+                        !fkCols.has(col) && !skipColumns.has(col.toLowerCase())
                     );
-                    
+
                     if (nonFkCols.length <= 1) {
                         junctionTables.add(table);
                     }
                 }
             }
-            
+
             return junctionTables;
         }
-        
+
+        function getSkipColumns() {
+            const raw = document.getElementById('skipColumns').value || '';
+            return new Set(raw.split(',').map(s => s.trim().toLowerCase()).filter(Boolean));
+        }
+
+        function getMaxTablesPerLayer() {
+            const v = parseInt(document.getElementById('maxPerLayer').value, 10);
+            return (Number.isFinite(v) && v > 0) ? v : 3;
+        }
+
         // ======================================================
         // IMPROVED LAYERING ALGORITHM
         // ======================================================
@@ -748,40 +1046,41 @@
             const inDegree = {};
             const graph = {};
             const reverseGraph = {};
-            
-            // Initialize
+
             for (const table of Object.keys(tables)) {
                 inDegree[table] = 0;
                 graph[table] = [];
                 reverseGraph[table] = [];
             }
-            
-            // Build graph
+
             for (const [table, fks] of Object.entries(foreignKeys)) {
-                for (const [fkCol, refTable] of fks) {
-                    if (graph[refTable]) {
+                for (const [, refTable] of fks) {
+                    if (graph[refTable] && table !== refTable) {
                         graph[refTable].push(table);
                         reverseGraph[table].push(refTable);
                         inDegree[table]++;
                     }
                 }
             }
-            
-            // Topological sort
+
             const levelMap = {};
             const queue = [];
-            
+
             for (const table of Object.keys(tables)) {
                 if (inDegree[table] === 0) {
                     levelMap[table] = 0;
                     queue.push(table);
                 }
             }
-            
-            while (queue.length > 0) {
+
+            let guard = 0;
+            const maxIterations = Object.keys(tables).length * 4 + 10;
+
+            while (queue.length > 0 && guard < maxIterations) {
+                guard++;
                 const table = queue.shift();
                 const currentLevel = levelMap[table];
-                
+
                 for (const dependent of graph[table]) {
                     if (!(dependent in levelMap)) {
                         const parentLevels = reverseGraph[dependent]
@@ -789,21 +1088,21 @@
                             .map(p => levelMap[p]);
                         const newLevel = parentLevels.length > 0 ? Math.max(...parentLevels) + 1 : currentLevel + 1;
                         levelMap[dependent] = newLevel;
-                        
+
                         inDegree[dependent]--;
-                        if (inDegree[dependent] === 0) {
+                        if (inDegree[dependent] <= 0) {
                             queue.push(dependent);
                         }
                     }
                 }
             }
-            
-            // Handle remaining tables
+
+            // Handle remaining tables (e.g. involved in circular references)
             for (const table of Object.keys(tables)) {
                 if (!(table in levelMap)) {
                     if (foreignKeys[table] && foreignKeys[table].length > 0) {
                         const refLevels = foreignKeys[table]
-                            .map(([_, ref]) => levelMap[ref])
+                            .map(([, ref]) => levelMap[ref])
                             .filter(l => l !== undefined);
                         levelMap[table] = refLevels.length > 0 ? Math.max(...refLevels) + 1 : 0;
                     } else {
@@ -811,80 +1110,79 @@
                     }
                 }
             }
-            
-            // Group into layers
+
             const layers = {};
             for (const [table, level] of Object.entries(levelMap)) {
                 if (!layers[level]) layers[level] = [];
                 layers[level].push(table);
             }
-            
-            // Balance layers
+
+            const maxTablesPerLayer = getMaxTablesPerLayer();
             const balancedLayers = {};
             let layerIdx = 0;
-            
+
             for (const level of Object.keys(layers).sort((a, b) => a - b)) {
                 let currentBatch = layers[level].filter(t => !junctionTables.has(t));
-                
-                while (currentBatch.length > CONFIG.maxTablesPerLayer) {
-                    balancedLayers[layerIdx] = currentBatch.slice(0, CONFIG.maxTablesPerLayer);
-                    currentBatch = currentBatch.slice(CONFIG.maxTablesPerLayer);
+
+                while (currentBatch.length > maxTablesPerLayer) {
+                    balancedLayers[layerIdx] = currentBatch.slice(0, maxTablesPerLayer);
+                    currentBatch = currentBatch.slice(maxTablesPerLayer);
                     layerIdx++;
                 }
-                
+
                 if (currentBatch.length > 0) {
                     balancedLayers[layerIdx] = currentBatch;
                     layerIdx++;
                 }
             }
-            
-            // Rebuild level map
+
             const newLevelMap = {};
             for (const [level, tablesInLevel] of Object.entries(balancedLayers)) {
                 for (const table of tablesInLevel) {
                     newLevelMap[table] = parseInt(level);
                 }
             }
-            
+
             return { layers: balancedLayers, levelMap: newLevelMap };
         }
-        
+
         // ======================================================
-        // COUNT ATTRIBUTES
+        // COUNT ATTRIBUTES (any FK column is excluded from the
+        // attribute list regardless of its naming convention,
+        // since it is already represented by a relationship line)
         // ======================================================
         function countAttributes(table, tables, foreignKeys) {
-            const fkCols = new Set(foreignKeys[table]?.map(fk => fk[0]) || []);
+            const skipColumns = getSkipColumns();
+            const fkCols = new Set((foreignKeys[table] || []).map(fk => fk[0]));
             let count = 0;
-            
-            for (const col of tables[table]) {
-                if (col.endsWith('_id') && fkCols.has(col)) continue;
-                if (CONFIG.skipColumns.has(col)) continue;
+
+            for (const col of (tables[table] || [])) {
+                if (fkCols.has(col)) continue;
+                if (skipColumns.has(col.toLowerCase())) continue;
                 count++;
             }
-            
+
             return count;
         }
-        
+
         // ======================================================
         // CALCULATE POSITIONS WITH COLLISION DETECTION
         // ======================================================
-        function calculatePositions(tables, foreignKeys, junctionTables, layers, levelMap) {
+        function calculatePositions(tables, foreignKeys, junctionTables, layers) {
             const positions = {};
-            const occupiedSpaces = []; // Track occupied areas for collision detection
-            
+            const occupiedSpaces = [];
+
             for (const level of Object.keys(layers).sort((a, b) => a - b)) {
                 const levelTables = layers[level].filter(t => !junctionTables.has(t)).sort();
-                
+
                 if (levelTables.length === 0) continue;
-                
-                // Calculate attributes for each table in this layer
+
                 const tableAttrs = levelTables.map(t => ({
                     table: t,
                     count: countAttributes(t, tables, foreignKeys)
                 }));
-                
-                // Calculate dynamic height based on max attributes
-                const maxAttr = Math.max(...tableAttrs.map(t => t.count));
+
+                const maxAttr = Math.max(...tableAttrs.map(t => t.count), 0);
                 const dynamicLayerHeight = Math.max(
                     CONFIG.dynamicHeight.base +
                     CONFIG.dynamicHeight.topPadding +
@@ -892,65 +1190,55 @@
                     CONFIG.dynamicHeight.bottomPadding,
                     CONFIG.dynamicHeight.minLayerHeight
                 );
-                
-                // Calculate column width based on max attributes in layer
+
                 const dynamicColWidth = Math.max(
                     CONFIG.layout.colWidth,
                     CONFIG.layout.entityWidth + Math.abs(CONFIG.layout.attrLeftX) + Math.abs(CONFIG.layout.attrRightX) + 100
                 );
-                
-                // Center entities if few tables
+
                 const numTables = levelTables.length;
                 let startX = CONFIG.layout.paddingX;
-                
+
                 if (numTables <= 2) {
                     startX = CONFIG.layout.paddingX + dynamicColWidth;
                 } else if (numTables === 3) {
                     startX = CONFIG.layout.paddingX + dynamicColWidth / 2;
                 }
-                
+
                 for (let idx = 0; idx < levelTables.length; idx++) {
                     const table = levelTables[idx];
                     const attrCount = tableAttrs[idx].count;
-                    
-                    // Calculate entity bounds with attributes
+
                     let x = startX + idx * dynamicColWidth;
                     let y = CONFIG.layout.paddingY + parseInt(level) * dynamicLayerHeight;
-                    
-                    // Check for collisions and adjust position
-                    const entityBounds = calculateEntityBounds(x, y, attrCount);
+
+                    let entityBounds = calculateEntityBounds(x, y, attrCount);
                     let collision = checkCollision(entityBounds, occupiedSpaces);
                     let attempts = 0;
-                    
-                    while (collision && attempts < 10) {
-                        // Try moving right
+
+                    while (collision && attempts < 20) {
                         x += 100;
-                        entityBounds.x = x;
-                        entityBounds.left = x + CONFIG.layout.attrLeftX;
-                        entityBounds.right = x + CONFIG.layout.entityWidth + CONFIG.layout.attrRightX + CONFIG.layout.attrWidth;
+                        entityBounds = calculateEntityBounds(x, y, attrCount);
                         collision = checkCollision(entityBounds, occupiedSpaces);
                         attempts++;
                     }
-                    
+
                     positions[table] = [x, y];
-                    
-                    // Mark this space as occupied
                     occupiedSpaces.push(entityBounds);
                 }
             }
-            
+
             return positions;
         }
-        
-        // Calculate bounds of entity including attributes
+
         function calculateEntityBounds(x, y, attrCount) {
             const attrsLeft = Math.ceil(attrCount / 2);
             const attrsRight = Math.floor(attrCount / 2);
-            
+
             const heightLeft = attrsLeft * CONFIG.layout.attrSpacing;
             const heightRight = attrsRight * CONFIG.layout.attrSpacing;
             const maxHeight = Math.max(heightLeft, heightRight);
-            
+
             return {
                 x: x,
                 y: y,
@@ -960,32 +1248,26 @@
                 bottom: y + CONFIG.layout.entityHeight + maxHeight + 50
             };
         }
-        
-        // Check if entity bounds collide with any occupied space
+
         function checkCollision(bounds, occupiedSpaces) {
             for (const occupied of occupiedSpaces) {
-                // Check for overlap
                 const horizontalOverlap = bounds.left < occupied.right && bounds.right > occupied.left;
                 const verticalOverlap = bounds.top < occupied.bottom && bounds.bottom > occupied.top;
-                
-                if (horizontalOverlap && verticalOverlap) {
-                    return true;
-                }
+                if (horizontalOverlap && verticalOverlap) return true;
             }
             return false;
         }
-        
+
         // ======================================================
-        // GENERATE ERD XML
+        // GENERATE ERD XML (draw.io format)
         // ======================================================
         function generateERDXML(tables, foreignKeys, primaryKeys, junctionTables) {
-            const diagramName = document.getElementById('diagramName').value || 'ERD Chen FINAL';
-            
-            // Calculate improved layout
-            const { layers, levelMap } = calculateLayersImproved(tables, foreignKeys, junctionTables);
-            const positions = calculatePositions(tables, foreignKeys, junctionTables, layers, levelMap);
-            
-            // Calculate canvas size based on content
+            const diagramName = document.getElementById('diagramName').value || 'ERD Chen Notation';
+            const skipColumns = getSkipColumns();
+
+            const { layers } = calculateLayersImproved(tables, foreignKeys, junctionTables);
+            const positions = calculatePositions(tables, foreignKeys, junctionTables, layers);
+
             let maxX = 0, maxY = 0;
             for (const [table, [x, y]] of Object.entries(positions)) {
                 const attrCount = countAttributes(table, tables, foreignKeys);
@@ -993,53 +1275,49 @@
                 maxX = Math.max(maxX, bounds.right);
                 maxY = Math.max(maxY, bounds.bottom);
             }
-            
-            // Add padding to canvas
+
             const canvasWidth = Math.max(2000, maxX + 300);
             const canvasHeight = Math.max(1500, maxY + 300);
-            
+
             let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net">
   <diagram name="${escapeXML(diagramName)}">
-    <mxGraphModel dx="${canvasWidth}" dy="${canvasHeight}">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="${Math.round(canvasWidth)}" pageHeight="${Math.round(canvasHeight)}" math="0" shadow="0">
       <root>
         <mxCell id="0"/>
         <mxCell id="1" parent="0"/>
 `;
-            
+
             const entityIds = {};
             let cellId = 2;
-            
-            // Create entities with alternating attributes
+
+            // Entities + attributes
             for (const [table, cols] of Object.entries(tables)) {
                 if (junctionTables.has(table) || !positions[table]) continue;
-                
+
                 const [x, y] = positions[table];
                 const eid = `entity-${cellId++}`;
                 entityIds[table] = eid;
-                
-                // Entity box
+
                 xml += `        <mxCell id="${eid}" value="${escapeXML(table)}" style="shape=rectangle;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=2;fontSize=12;fontStyle=1;align=center;verticalAlign=middle;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="${x}" y="${y}" width="${CONFIG.layout.entityWidth}" height="${CONFIG.layout.entityHeight}" as="geometry"/>
         </mxCell>
 `;
-                
-                // Attributes with alternating placement
-                const fkCols = new Set(foreignKeys[table]?.map(fk => fk[0]) || []);
-                
-                const displayCols = cols.filter(col => 
-                    !(col.endsWith('_id') && fkCols.has(col)) && 
-                    !CONFIG.skipColumns.has(col)
+
+                const fkCols = new Set((foreignKeys[table] || []).map(fk => fk[0]));
+                const pkCols = new Set(primaryKeys[table] || []);
+
+                const displayCols = cols.filter(col =>
+                    !fkCols.has(col) && !skipColumns.has(col.toLowerCase())
                 ).sort();
-                
+
                 let attrYLeft = y + CONFIG.layout.entityHeight + 15;
                 let attrYRight = y + CONFIG.layout.entityHeight + 15;
-                
+
                 for (let idx = 0; idx < displayCols.length; idx++) {
                     const col = displayCols[idx];
-                    const isPK = col === primaryKeys[table];
-                    
-                    // Alternating placement
+                    const isPK = pkCols.has(col);
+
                     let attrX, attrY;
                     if (idx % 2 === 0) {
                         attrX = x + CONFIG.layout.attrLeftX;
@@ -1050,11 +1328,11 @@
                         attrY = attrYRight;
                         attrYRight += CONFIG.layout.attrSpacing;
                     }
-                    
+
                     const aid = `attr-${cellId++}`;
                     const strokeWidth = isPK ? '2' : '1';
-                    const fontStyle = isPK ? '5' : '0';  // 5 = bold + underline
-                    
+                    const fontStyle = isPK ? '5' : '0'; // 5 = bold + underline
+
                     xml += `        <mxCell id="${aid}" value="${escapeXML(col)}" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=${strokeWidth};fontSize=9;fontStyle=${fontStyle};align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="${attrX}" y="${attrY}" width="${CONFIG.layout.attrWidth}" height="${CONFIG.layout.attrHeight}" as="geometry"/>
         </mxCell>
@@ -1064,30 +1342,31 @@
 `;
                 }
             }
-            
-            // Create 1:N relationships with arrows
+
+            // 1:N relationships
             for (const [table, fks] of Object.entries(foreignKeys)) {
                 if (junctionTables.has(table) || !positions[table]) continue;
-                
-                for (const [fkCol, targetTable] of fks) {
+
+                for (const [, targetTable] of fks) {
+                    if (table === targetTable) continue; // avoid degenerate self-relation diamond
                     if (!positions[targetTable] || !entityIds[targetTable] || !entityIds[table]) continue;
-                    
+
                     const [ex, ey] = positions[table];
                     const [px, py] = positions[targetTable];
-                    
+
                     const exCenter = ex + CONFIG.layout.entityWidth / 2;
                     const eyCenter = ey + CONFIG.layout.entityHeight / 2;
                     const pxCenter = px + CONFIG.layout.entityWidth / 2;
                     const pyCenter = py + CONFIG.layout.entityHeight / 2;
-                    
+
                     const midX = Math.floor((exCenter + pxCenter) / 2);
                     const midY = Math.floor((eyCenter + pyCenter) / 2);
-                    
+
                     const rx = midX - CONFIG.layout.relationshipWidth / 2;
                     const ry = midY - CONFIG.layout.relationshipHeight / 2 + CONFIG.layout.relationshipOffsetY;
-                    
+
                     const rid = `rel-${cellId++}`;
-                    
+
                     xml += `        <mxCell id="${rid}" value="memiliki" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="${rx}" y="${ry}" width="${CONFIG.layout.relationshipWidth}" height="${CONFIG.layout.relationshipHeight}" as="geometry"/>
         </mxCell>
@@ -1098,82 +1377,80 @@
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 `;
-                    
-                    // Add cardinality labels
+
                     const mX = (exCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
                     const mY = (eyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 - 15;
                     xml += addCardinalityLabel('N', mX, mY, cellId++);
-                    
+
                     const oneX = (pxCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
                     const oneY = (pyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 + 15;
                     xml += addCardinalityLabel('1', oneX, oneY, cellId++);
                 }
             }
-            
-            // Create M:N relationships
+
+            // M:N relationships (junction tables)
             for (const [table, fks] of Object.entries(foreignKeys)) {
                 if (!junctionTables.has(table) || fks.length < 2) continue;
-                
-                const refs = fks.map(fk => fk[1]).filter(ref => 
-                    positions[ref] && entityIds[ref]
-                );
-                
-                if (refs.length >= 2) {
-                    const [a, b] = refs;
-                    
+
+                const refs = fks.map(fk => fk[1]).filter(ref => positions[ref] && entityIds[ref]);
+                const uniqueRefs = [...new Set(refs)];
+
+                if (uniqueRefs.length >= 2) {
+                    const [a, b] = uniqueRefs;
+
                     const [ax, ay] = positions[a];
                     const [bx, by] = positions[b];
-                    
+
                     const axCenter = ax + CONFIG.layout.entityWidth / 2;
                     const ayCenter = ay + CONFIG.layout.entityHeight / 2;
                     const bxCenter = bx + CONFIG.layout.entityWidth / 2;
                     const byCenter = by + CONFIG.layout.entityHeight / 2;
-                    
+
                     const midX = (axCenter + bxCenter) / 2;
                     const midY = (ayCenter + byCenter) / 2;
-                    
+
                     const rx = midX - CONFIG.layout.relationshipWidth / 2;
                     const ry = midY - CONFIG.layout.relationshipHeight / 2 + CONFIG.layout.relationshipOffsetY;
-                    
+
                     const rid = `rel-${cellId++}`;
-                    
+
                     xml += `        <mxCell id="${rid}" value="memiliki" style="rhombus;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#ffffff;strokeWidth=1.5;fontSize=10;align=center;verticalAlign=middle;" vertex="1" parent="1">
           <mxGeometry x="${rx}" y="${ry}" width="${CONFIG.layout.relationshipWidth}" height="${CONFIG.layout.relationshipHeight}" as="geometry"/>
         </mxCell>
 `;
-                    
+
                     for (const ent of [a, b]) {
                         const [ex, ey] = positions[ent];
                         const exCenter = ex + CONFIG.layout.entityWidth / 2;
                         const eyCenter = ey + CONFIG.layout.entityHeight / 2;
-                        
+
                         xml += `        <mxCell id="${cellId++}" edge="1" source="${entityIds[ent]}" target="${rid}" style="strokeColor=#000000;strokeWidth=1.5;endArrow=classic;endFill=1;curved=0;" parent="1">
           <mxGeometry relative="1" as="geometry"/>
         </mxCell>
 `;
-                        
+
                         const mX = (exCenter + (rx + CONFIG.layout.relationshipWidth / 2)) / 2;
                         const mY = (eyCenter + (ry + CONFIG.layout.relationshipHeight / 2)) / 2 - 15;
                         xml += addCardinalityLabel('M', mX, mY, cellId++);
                     }
                 }
             }
-            
+
             xml += `      </root>
     </mxGraphModel>
   </diagram>
 </mxfile>`;
-            
+
             return xml;
         }
-        
+
         function addCardinalityLabel(text, x, y, id) {
             return `        <mxCell id="${id}" value="${text}" style="text;html=1;align=center;verticalAlign=middle;fontSize=12;fontStyle=1;fillColor=#ffffff;strokeColor=none;" vertex="1" parent="1">
           <mxGeometry x="${Math.floor(x - 10)}" y="${Math.floor(y - 10)}" width="20" height="20" as="geometry"/>
         </mxCell>
 `;
         }
-        
+
         function escapeXML(str) {
             return String(str)
                 .replace(/&/g, '&amp;')
